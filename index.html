@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Demo Product</title>
+
+    <script src="https://cdn.amplitude.com/libs/analytics-browser-2.11.1-min.js.gz"></script>
+    <script src="https://cdn.amplitude.com/libs/plugin-session-replay-browser-1.25.15-min.js.gz"></script>
+    <script>
+        window.amplitude.add(window.sessionReplay.plugin({sampleRate: 1}));
+        window.amplitude.init('19d9e0b3d6afdd4ee206f88a2dbf87b1', {
+            "autocapture": {"elementInteractions": true}
+        });
+    </script>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f4f6f8;
+            text-align: center;
+            margin-top: 100px;
+        }
+        .card {
+            background: white;
+            padding: 40px;
+            width: 400px;
+            margin: auto;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h1>Demo Product</h1>
+        <p>Welcome to our demo landing page.</p>
+
+        <button id="signup">Sign Up</button>
+        <button id="demo">Request Demo</button>
+    </div>
+
+    <script>
+        document.getElementById("signup").onclick = function() {
+            amplitude.track("Sign Up Clicked");
+        }
+
+        document.getElementById("demo").onclick = function() {
+            amplitude.track("Request Demo Clicked");
+        }
+    </script>
+
+</body>
+</html>
